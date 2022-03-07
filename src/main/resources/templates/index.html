@@ -7,6 +7,8 @@
 
         <nav th:replace="fragments::menu"></nav>
 
+        <div>Aantal bezoeken: <th:block th:text="${aantalBezoeken}"></th:block>.</div>
+
         <h1>Pizza Luigi</h1>
         <img th:src="@{images/luigi.jpg}" alt="pizza" class="fullwidth">
         <h2>Goede <th:block th:text="${moment}"></th:block></h2>

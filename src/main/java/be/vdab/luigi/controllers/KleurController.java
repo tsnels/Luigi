@@ -17,9 +17,9 @@ public class KleurController {
     public static final int EEN_JAAR_IN_SECONDEN = 31_536_000;
 
     @GetMapping
-    public ModelAndView toonPagina(@CookieValue Optional<String> kleur) {
+    public ModelAndView toonPagina(@CookieValue Optional<String> bezocht) {
         var modelAndView = new ModelAndView("kleuren");
-        kleur.ifPresent(hetKleur -> modelAndView.addObject("kleur", hetKleur));
+        bezocht.ifPresent(aantalBezoekingen -> modelAndView.addObject("kleur", aantalBezoekingen));
         return modelAndView;
     }
 
