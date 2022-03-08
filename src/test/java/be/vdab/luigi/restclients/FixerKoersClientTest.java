@@ -4,10 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class FixerKoersClientTest {
-    private FixerKoersClient client;
+    private KoersClient client;
 
     @BeforeEach
     void beforeEach() {
