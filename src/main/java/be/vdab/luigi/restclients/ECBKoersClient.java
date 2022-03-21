@@ -2,6 +2,7 @@ package be.vdab.luigi.restclients;
 
 import be.vdab.luigi.exceptions.KoersClientException;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -13,17 +14,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 @Component
-@Qualifier("ECB")
+@Qualifier
 class ECBKoersClient implements KoersClient {
 
     private final URL url;
     private final XMLInputFactory factory = XMLInputFactory.newInstance();
-    ECBKoersClient() {
-        try {
-            url = new URL("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml");
-        } catch (MalformedURLException ex) {
-            throw new KoersClientException("ECB URL is verkeerd.", ex);
-        }
+
+    ECBKoersClient(@Value("${ecbKoersURL}") URL url) {
+        this.url = url;
     }
 
     @Override

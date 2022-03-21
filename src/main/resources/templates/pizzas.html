@@ -3,9 +3,11 @@
 
 <head th:replace="fragments::head(title='Pizza\'s')"></head>
 
-<body><h1>Pizza's</h1>
+<body>
 
 <nav th:replace="fragments::menu"></nav>
+
+<h1>Pizza's</h1>
 
 <table th:replace="fragments::pizzaTabel(pizzas=${allePizzas})"></table>
 
