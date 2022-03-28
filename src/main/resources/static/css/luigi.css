@@ -1,5 +1,5 @@
 body {
-    background-color: #FFFFDE;
+    background-color: #f1e399;
     font-family: sans-serif;
 }
 
@@ -73,6 +73,8 @@ nav ul {
 
 nav li {
     display: inline;
+    padding-right: 0.8em;
+    border-right: 2px solid #f1e399;
 }
 
 nav li a {

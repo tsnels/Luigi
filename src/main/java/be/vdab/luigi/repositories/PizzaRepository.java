@@ -1,6 +1,7 @@
 package be.vdab.luigi.repositories;
 
 import be.vdab.luigi.domain.Pizza;
+import be.vdab.luigi.dto.AantalPizzasPerPrijs;
 import be.vdab.luigi.exceptions.PizzaNietGevondenException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -130,6 +131,18 @@ public class PizzaRepository {
                 + "?,".repeat(ids.size() -1 )
                 + "?) order by id";
         return template.query(sql, pizzaMapper, ids.toArray());
+    }
+
+    public List<AantalPizzasPerPrijs> findAantalPizzasPerPrijs() {
+        var sql = """
+                select prijs, count(*) as aantal
+                from pizzas
+                group by prijs
+                order by prijs
+                """;
+        RowMapper<AantalPizzasPerPrijs> mapper = (result, rowNum) ->
+                new AantalPizzasPerPrijs(result.getBigDecimal("prijs"), result.getInt("aantal"));
+        return template.query(sql, mapper);
     }
 
 }
