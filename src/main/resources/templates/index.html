@@ -21,9 +21,14 @@
             <dd th:text="*{aantalKinderen}"></dd>
             <dt>Gehuwd</dt>
             <dd th:text="*{gehuwd} ? 'ja' : 'nee'"></dd>
+            <dt>Geboorte</dt>
+            <dd th:text="*{geboorte}"></dd>
         </dl>
 
     <dt>Adress</dt>
     <dd th:object="${zaakvoerder.adres}" th:text="|*{straat} *{huisNr} *{postcode} *{gemeente}|"></dd>
+
+    <div th:text="${identificatie.emailAdres}"></div>
+
     </body>
 </html>

@@ -1,10 +1,13 @@
 package be.vdab.luigi.domain;
 
+import org.springframework.format.annotation.NumberFormat;
+
 import java.math.BigDecimal;
 
 public class Pizza {
     private final long id;
     private final String naam;
+    @NumberFormat(pattern = "0.00")
     private final BigDecimal prijs;
     private final boolean pikant;
 
