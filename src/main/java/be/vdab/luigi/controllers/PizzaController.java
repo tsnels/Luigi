@@ -98,12 +98,12 @@ class PizzaController {
     }
 
     @GetMapping("vantotprijs")
-    public ModelAndView findPrijsBetween(@Valid VanTotPrijsForm Form, Errors errors) {
+    public ModelAndView findPrijsBetween(@Valid VanTotPrijsForm form, Errors errors) {
         var modelAndView = new ModelAndView("vantotprijs");
         if(errors.hasErrors()) {
             return modelAndView;
         }
-        return modelAndView.addObject("pizzas", pizzaService.findByPrijsBetween(Form.van(), Form.tot()));
+        return modelAndView.addObject("pizzas", pizzaService.findByPrijsBetween(form.van(), form.tot()));
     }
 
     @GetMapping("toevoegen/form")
